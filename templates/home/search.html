@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+<div class="container-fluid ">
+    <h2 class="mt-4 mb-4">Search result for "{{search_query}}"</h2>
+    <div class="">
+        <div class="row g-2">
+            {% for i in news %}
+            <div class="col-3 ">
+                <a href="/news/{{i.slug}}" class="list-group-item h-100">
+
+                    <div class="card h-100">
+                        <img src="{{i.image.url}}" alt="{{i.heading}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.heading}}</h5>
+                        <p class="card-text">{{i.get_short_para|slice:"0:150"}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </a>
+            </div>
+            {% endfor %}
+        </div
+    </div>
+</div>
+
+{% endblock body %}
